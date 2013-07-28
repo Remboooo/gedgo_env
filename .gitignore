@@ -1,0 +1,4 @@
+.vagrant*
+virtualenv
+*.pyc
+gedgo
