@@ -28,8 +28,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = ''
-MEDIA_URL = ''
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'fixtures/media/')
+MEDIA_URL = '/gedgo/media/'
 
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
@@ -77,9 +77,10 @@ INSTALLED_APPS = (
     'gedgo'
 )
 
-BROKER_BACKEND = "redis"
-BROKER_URL = "redis://localhost:6379/0"
+CELERY_BROKER_BACKEND = "redis"
+CELERY_BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis"
+CELERY_ACCEPT_CONTENT = ["json"]
 
 LOGGING = {
     'version': 1,

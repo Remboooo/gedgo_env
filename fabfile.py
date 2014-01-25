@@ -11,13 +11,13 @@ env.disable_known_hosts = True
 
 
 @task
-def setup_env():
+def setup_dev_env():
     """
-    Resets the virtualenv library and creates a new
-    database if it doesn't already exist
+    Resets the virtualenv library and the database, loads some
+    fixture data to speed up development environment setup
     """
     with cd("gedgo_env"):
-        run("sh setup_env.sh; ", shell=True)
+        run("sh setup_dev_env.sh; ", shell=True)
 
 
 @task
@@ -27,3 +27,12 @@ def server():
     """
     with cd("gedgo_env"):
         run("foreman start", shell=True)
+
+
+@task
+def test():
+    """
+    Run the unit tests
+    """
+    with cd("gedgo_env"):
+        run("virtualenv/bin/python manage.py test gedgo")

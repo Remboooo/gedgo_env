@@ -13,6 +13,9 @@ urlpatterns = patterns(
     url(r'^accounts/login/$',
         'django.contrib.auth.views.login',
         {'template_name': 'gedgo/login.html'}),
+    url(r'^login/$',
+        'django.contrib.auth.views.login',
+        {'template_name': 'gedgo/login.html'}),
     url(r'^robots\.txt$',
         lambda r: HttpResponse(
             "User-agent: *\nDisallow: /",

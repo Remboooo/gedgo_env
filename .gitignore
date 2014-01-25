@@ -2,3 +2,4 @@
 virtualenv
 *.pyc
 gedgo
+fixtures/media/thumbs
