@@ -77,9 +77,14 @@ INSTALLED_APPS = (
     'gedgo'
 )
 
-CELERY_BROKER_BACKEND = "redis"
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-CELERY_RESULT_BACKEND = "redis"
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+# Just send emails to the console.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SERVER_EMAIL = ['noreply@example.com']
+
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ["json"]
 
 LOGGING = {

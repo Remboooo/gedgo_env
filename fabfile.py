@@ -35,4 +35,5 @@ def test():
     Run the unit tests
     """
     with cd("gedgo_env"):
+        run("virtualenv/bin/flake8 gedgo")
         run("virtualenv/bin/python manage.py test gedgo")
