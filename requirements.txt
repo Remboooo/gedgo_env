@@ -1,7 +1,0 @@
-django
-django-celery
-South
-django-tastypie
-PIL
-mysql-python
-redis

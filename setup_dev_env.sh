@@ -2,10 +2,9 @@
 set -e
 
 # Build dependencies
-rm -rf virtualenv
 virtualenv virtualenv
 virtualenv/bin/pip install --upgrade setuptools==1.4 pip==1.5 wheel
-virtualenv/bin/pip install --allow-external PIL --allow-unverified PIL -r requirements.txt
+virtualenv/bin/pip install --allow-external PIL --allow-unverified PIL -r gedgo/reqs.pip
 
 # Drop and re-create the database
 mysql -u root -e 'DROP DATABASE IF EXISTS gedgo;'
