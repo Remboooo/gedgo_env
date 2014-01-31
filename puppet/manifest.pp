@@ -34,7 +34,9 @@ service { "mysqld":
   ensure => running,
   enable => true
 }-> 
-exec{ "ln /usr/lib64/libjpeg.so /usr/lib/": }
+exec{ "ln /usr/lib64/libjpeg.so /usr/lib/": 
+  unless => "ls /usr/lib/libjpeg.so"
+}
 exec { "easy_install pip":
   unless => "which pip",
   require => Package['python-setuptools'],
