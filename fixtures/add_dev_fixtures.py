@@ -2,6 +2,9 @@ from gedgo.models import Gedcom, Family
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
+import django
+django.setup()
+
 gedcom = Gedcom.objects.get(id=1)
 gedcom.title = "The Gedgo Family Tree"
 gedcom.description = (
