@@ -1,4 +1,5 @@
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 # Django settings for gedgo project.
 
 DEBUG = True
@@ -31,7 +32,7 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'fixtures/media/')
 MEDIA_URL = '/gedgo/media/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = '/mnt/array/services/gedgo_env/gedgo/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_FINDERS = (
@@ -44,6 +45,10 @@ SECRET_KEY = 'not_a_secret'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,7 +77,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djcelery',
-    'south',
     'django.contrib.admin',
     'gedgo'
 )
@@ -110,3 +114,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = '/gedgo/1/'
