@@ -31,7 +31,7 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'fixtures/media/')
 MEDIA_URL = '/gedgo/media/'
 
-STATIC_ROOT = '/mnt/array/services/gedgo_env/gedgo/static/'
+STATIC_ROOT = '/opt/lakwijk-gedgo/gedgo/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_FINDERS = (
