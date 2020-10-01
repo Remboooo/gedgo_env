@@ -1,5 +1,4 @@
 import os
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 # Django settings for gedgo project.
 
 DEBUG = True
@@ -13,15 +12,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gedgo',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '',
+        'USER': 'gedgo',
+        'PASSWORD': 'SuL7YYjF86M3tVvD',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
 
-ALLOWED_HOSTS = []
-TIME_ZONE = 'America/New_York'
+ALLOWED_HOSTS = ['lakwijk.info', 'lakwijk.com', 'www.lakwijk.info', 'www.lakwijk.com']
+TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
@@ -40,25 +39,37 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-SECRET_KEY = 'not_a_secret'
+SECRET_KEY = 'gsdfgfsd0780t9r48yqw5hq2308fc012'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -85,7 +96,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Just send emails to the console.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-SERVER_EMAIL = ['noreply@example.com']
+SERVER_EMAIL = ['rem@lakwijk.com']
 
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
